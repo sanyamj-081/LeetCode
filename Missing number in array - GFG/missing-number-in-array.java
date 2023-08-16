@@ -30,10 +30,18 @@ class GFG {
 class Solution {
     int missingNumber(int array[], int n) {
         // Your Code Here
-        int sum = (n * (n+1) ) /2;
-        for(int i =0;i<n-1;i++) {
-            sum -= array[i];
+        int sum =0;
+        int j=1;
+        
+        while(j<=n) {
+           sum =  j^sum;
+           j++;
         }
+        
+        for(int i =0;i<n-1;i++) {
+            sum = sum ^ array[i];
+        }
+        
         return sum;
     }
 }
