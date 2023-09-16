@@ -26,21 +26,15 @@ class Solution
     String reverseWords(String S)
     {
         // code here 
-        String str = "";
-        String temp ="";
-        for(int i=S.length()-1;i>=0;i--) {
-            if(S.charAt(i) == '.') 
-                {
-                    temp += S.charAt(i);
-                    str+= temp;
-                    temp ="";
-                }
-            else {
-                temp = S.charAt(i) +temp;
-            }
-            
+        String arr[] = S.split("[.]+");
+        String s = "";
+        for(int i =arr.length-1;i>=0;i--) {
+            s += arr[i];
+            if(i>0)
+            s+= ".";
         }
-        return str +temp;
+      //  s.deleteCharAt(s.charAt(s.length() -1));
+        return s;
         
     }
 }
